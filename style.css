@@ -1,0 +1,24 @@
+/* style.css */
+#colab-btn-container, .dark a.foot, .dark a.api, footer {
+    display: none !important;
+}
+
+.submit-btn {
+    background: orange !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+}
+
+.submit-btn:hover {
+    background: darkorange !important;
+}
+
+.output-markdown {
+    padding-left: 20px;
+    border-radius: 5px;
+    min-height: 400px;
+    overflow-y: auto;
+}
