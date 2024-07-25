@@ -2,9 +2,17 @@ from openai import OpenAI
 import gradio as gr
 import os
 from dotenv import load_dotenv
+import httpx
 
 load_dotenv()
-client = OpenAI(api_key=os.getenv("API_KEY"))
+
+proxy_url = os.getenv("OPENAI_PROXY_URL")
+api_key = os.getenv("API_KEY")
+
+client = OpenAI(api_key=api_key) if proxy_url is None or proxy_url == "" else OpenAI(api_key=api_key, http_client=httpx.Client(proxy=proxy_url))
+
+
+# client = OpenAI(api_key=api_key)
 
 
 def generate_response(prompt):
