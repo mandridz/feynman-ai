@@ -32,14 +32,14 @@ def chat_with_feynman(user_input):
 
 
 with gr.Blocks(css="style.css") as iface:
-    gr.Markdown("# Чат с Фейнманом\nЗадайте любой вопрос и получите ответ в стиле Ричарда Фейнмана.")
+    gr.Markdown("# Чат с Фейнманом [Объяснятор :)]\nЗадайте любой вопрос и получите ответ в стиле Ричарда Фейнмана.")
     with gr.Row():
         with gr.Column():
             with gr.Row():
                 user_input = gr.Textbox(lines=10, placeholder="Введите ваш вопрос здесь...", label="Ваш вопрос")
             with gr.Row():
-                submit_btn = gr.Button(value="Отправить", elem_classes="submit-btn")
                 clear_btn = gr.Button(value="Очистить")
+                submit_btn = gr.Button(value="Отправить", elem_classes="submit-btn")
         with gr.Column():
             # output = gr.Textbox(lines=10, label="Ответ")
             output = gr.Markdown(label="Ответ", elem_classes="output-markdown")
@@ -49,4 +49,4 @@ with gr.Blocks(css="style.css") as iface:
     clear_btn.click(lambda: "", inputs=[], outputs=output)
 
 
-iface.launch(server_name="0.0.0.0", server_port=7860)
+iface.launch(server_name="0.0.0.0", server_port=7860, share=True)
